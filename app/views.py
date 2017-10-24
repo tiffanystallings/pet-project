@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 import os
 
@@ -8,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/welcome')
 def showLanding():
-	return 'This is the landing page!'
+	return render_template('index.html')
 
 
 @app.route('/login')
