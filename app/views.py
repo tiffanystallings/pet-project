@@ -14,22 +14,22 @@ def showLanding():
 
 @app.route('/login')
 def showLogin():
-	return 'This is the login page!'
+	return render_template('login.html')
 
 
 @app.route('/adoptions')
 def showAdoptions():
-	return 'This is the adoptions page!'
+	return render_template('adopt.html')
 
 
 @app.route('/<int:user_id>/profile')
 def showProfile(user_id):
-	return 'This is the profile for user # ' + str(user_id)
+	return render_template('profile.html', user_id=user_id)
 
 
 @app.route('/<int:user_id>/pets')
 def showPets(user_id):
-	return 'This is the pets page for user # ' + str(user_id)
+	return render_template('pets.html', user_id=user_id)
 
 
 if __name__ == '__main__':
