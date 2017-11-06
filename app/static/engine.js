@@ -9,12 +9,21 @@ var Engine = (function(global) {
 	canvas.width = 300;
 	canvas.height = 300;
 	$('#canvas').append(canvas);
+	ctx.translate(150, 150);
+	ctx.save();
 
 	function init() {
-		var eggx = 150 - (egg.width/2),
-			eggy = 150 - (egg.height/2);
-		ctx.clearRect(0, 0, 300, 300);
-		ctx.drawImage(egg, eggx, eggy);
+		win.requestAnimationFrame(wobble);
+	}
+
+	function wobble() {
+		var eggx = -(egg.width/2),
+			eggy = -(egg.height/2);
+		ctx.clearRect(-150, -150, 300, 300);
+		var time = new Date();
+  		ctx.rotate(((0.05 * Math.PI) / 60) * time.getSeconds() + ((0.05 * Math.PI) / 60000) * time.getMilliseconds());
+  		ctx.drawImage(egg, eggx, eggy);
+  		win.requestAnimationFrame(wobble);
 	}
 
 	egg.onload = function() {
