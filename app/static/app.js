@@ -14,6 +14,17 @@
 		egg_static.setAttribute('class', 'egg');
 		$('#canvas').append(egg_static);
 	}
+
+	$('#canvas').click(function() {
+		console.log('egg clicked');
+		$('.egg').remove();
+		$('#canvas').append(egg_wobble);
+
+		setTimeout(function() {
+			$('.egg').remove();
+			$('#canvas').append(egg_static);
+		}, 1100);
+	})
 })()
 
 function loadImage(uri) {
