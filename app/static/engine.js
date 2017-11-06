@@ -4,5 +4,7 @@ var Engine = (function(global) {
 		canvas = doc.createElement('canvas'),
 		ctx = canvas.getContext('2d');
 
+	canvas.width = 300;
+	canvas.height = 300;
 	$('#canvas').append(canvas);
 })(this);
