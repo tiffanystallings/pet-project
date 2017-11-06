@@ -11,8 +11,10 @@ var Engine = (function(global) {
 	$('#canvas').append(canvas);
 
 	function init() {
+		var eggx = 150 - (egg.width/2),
+			eggy = 150 - (egg.height/2);
 		ctx.clearRect(0, 0, 300, 300);
-		ctx.drawImage(egg, 0, 0);
+		ctx.drawImage(egg, eggx, eggy);
 	}
 
 	egg.onload = function() {
